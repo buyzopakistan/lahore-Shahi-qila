@@ -48,37 +48,86 @@
             color: #ffffff;
         }
         .login-card .subtitle {
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.5);
             text-align: center;
             margin-bottom: 24px;
             font-size: 0.95rem;
         }
-        .login-card .form-control {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+
+        /* ===== IMPROVED FORM STYLES ===== */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            color: #d0d0d0;
+            font-weight: 500;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+            letter-spacing: 0.3px;
+        }
+        .form-group .form-control {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: #ffffff;
             padding: 14px 18px;
             border-radius: 12px;
+            font-size: 1rem;
+            width: 100%;
+            transition: 0.3s;
         }
-        .login-card .form-control:focus {
+        .form-group .form-control::placeholder {
+            color: #aaaaaa;
+            font-weight: 300;
+            opacity: 1;
+        }
+        .form-group .form-control:focus {
             border-color: #ffd700;
             outline: none;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.05);
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+            background: rgba(255, 255, 255, 0.08);
         }
-        .login-card .btn-gold {
+        .form-group .form-control[type="file"] {
+            padding: 10px 14px;
+            color: #d0d0d0;
+        }
+        .form-group .form-control[type="file"]::file-selector-button {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .form-group .form-control[type="file"]::file-selector-button:hover {
+            background: rgba(255, 215, 0, 0.2);
+        }
+        .form-group .form-text {
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 0.75rem;
+            margin-top: 4px;
+        }
+
+        .btn-gold {
             background: #ffd700;
             color: #0a0a0a;
             border: none;
             padding: 14px;
             border-radius: 12px;
             font-weight: 600;
+            font-size: 1rem;
             width: 100%;
             transition: 0.3s;
+            cursor: pointer;
         }
-        .login-card .btn-gold:hover {
+        .btn-gold:hover {
             background: #e6c200;
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.15);
         }
+
         .error-msg {
             color: #ff6b6b;
             font-size: 0.85rem;
@@ -86,7 +135,7 @@
             text-align: center;
         }
 
-        /* Jobs Section (Hidden initially) */
+        /* Jobs Section */
         #jobSection {
             display: none;
             margin-top: 32px;
@@ -109,6 +158,8 @@
             justify-content: space-between;
             align-items: center;
             transition: 0.3s;
+            flex-wrap: wrap;
+            gap: 8px;
         }
         .job-card:hover {
             border-color: rgba(255, 215, 0, 0.15);
@@ -182,9 +233,11 @@
             color: rgba(255, 255, 255, 0.3);
             font-size: 1.6rem;
             cursor: pointer;
+            transition: 0.3s;
         }
         .modal-box .close-modal:hover {
             color: #ffd700;
+            transform: rotate(90deg);
         }
         .modal-box h3 {
             font-family: 'Playfair Display', serif;
@@ -194,34 +247,7 @@
             color: rgba(255, 255, 255, 0.4);
             margin-bottom: 16px;
         }
-        .modal-box .form-control {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: #ffffff;
-            padding: 12px 16px;
-            border-radius: 10px;
-            width: 100%;
-        }
-        .modal-box .form-control:focus {
-            border-color: #ffd700;
-            outline: none;
-        }
-        .modal-box .btn-gold {
-            background: #ffd700;
-            color: #0a0a0a;
-            border: none;
-            padding: 12px;
-            border-radius: 10px;
-            font-weight: 600;
-            width: 100%;
-        }
-        .modal-box .btn-gold:hover {
-            background: #e6c200;
-        }
-        .modal-box .form-text {
-            color: rgba(255, 255, 255, 0.2);
-            font-size: 0.75rem;
-        }
+
         .back-link {
             display: block;
             text-align: center;
@@ -229,9 +255,20 @@
             color: rgba(255, 255, 255, 0.2);
             text-decoration: none;
             font-size: 0.85rem;
+            transition: 0.3s;
         }
         .back-link:hover {
             color: #ffd700;
+        }
+
+        @media (max-width: 500px) {
+            .login-card {
+                padding: 24px;
+            }
+            .job-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
@@ -245,13 +282,15 @@
 
         <!-- Login Form -->
         <form id="loginForm">
-            <div class="mb-3">
-                <input type="email" id="loginEmail" class="form-control" placeholder="Email address" required />
+            <div class="form-group">
+                <label for="loginEmail"><i class="fas fa-envelope"></i> Email Address</label>
+                <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email address" required />
             </div>
-            <div class="mb-3">
-                <input type="password" id="loginPassword" class="form-control" placeholder="Password" required />
+            <div class="form-group">
+                <label for="loginPassword"><i class="fas fa-lock"></i> Password</label>
+                <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required />
             </div>
-            <button type="submit" class="btn-gold">Login</button>
+            <button type="submit" class="btn-gold"><i class="fas fa-sign-in-alt"></i> Login</button>
             <div id="loginError" class="error-msg"></div>
         </form>
 
@@ -272,21 +311,26 @@
             <p class="job-label" id="modalJobLabel">Position: Chef</p>
             <form id="applicationForm">
                 <input type="hidden" id="jobPosition" />
-                <div class="mb-3">
-                    <input type="text" id="fullName" class="form-control" placeholder="Full Name" required />
+
+                <div class="form-group">
+                    <label for="fullName"><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="fullName" class="form-control" placeholder="Enter your full name" required />
                 </div>
-                <div class="mb-3">
-                    <input type="email" id="email" class="form-control" placeholder="Email Address" required />
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email address" required />
                 </div>
-                <div class="mb-3">
-                    <input type="tel" id="phone" class="form-control" placeholder="Phone Number" required />
+                <div class="form-group">
+                    <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number" required />
                 </div>
-                <div class="mb-3">
+                <div class="form-group">
+                    <label for="cvFile"><i class="fas fa-file-pdf"></i> Upload CV</label>
                     <input type="file" id="cvFile" class="form-control" accept=".pdf,.doc,.docx" required />
-                    <div class="form-text">Upload CV (PDF, DOC, DOCX)</div>
+                    <div class="form-text">Supported: PDF, DOC, DOCX</div>
                 </div>
-                <button type="submit" class="btn-gold">Submit Application</button>
-                <div id="applyError" style="color:#ff6b6b; font-size:0.85rem; margin-top:8px;"></div>
+                <button type="submit" class="btn-gold"><i class="fas fa-paper-plane"></i> Submit Application</button>
+                <div id="applyError" class="error-msg"></div>
             </form>
         </div>
     </div>
