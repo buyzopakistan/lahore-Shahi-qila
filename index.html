@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lahore Shahi Qila - Premium Pakistani Cuisine</title>
+    <title>Lahore Shahi Qila</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -20,38 +20,7 @@
             overflow-x: hidden;
         }
 
-        /* Scroll Animations */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .fade-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .fade-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .fade-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .fade-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Particle Background */
+        /* Particles */
         #particles {
             position: fixed;
             top: 0;
@@ -87,6 +56,16 @@
             }
         }
 
+        .fade-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Navbar */
         .navbar-custom {
             background: rgba(10, 10, 10, 0.95);
@@ -99,16 +78,11 @@
             z-index: 1000;
             transition: 0.3s;
         }
-        .navbar-custom.scrolled {
-            background: rgba(0, 0, 0, 0.98);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-        }
         .navbar-custom .navbar-brand {
             font-family: 'Playfair Display', serif;
             font-size: 1.6rem;
             font-weight: 700;
             color: #ffd700;
-            letter-spacing: 1px;
         }
         .navbar-custom .navbar-brand span {
             color: #ffffff;
@@ -314,7 +288,7 @@
 
         /* Sections */
         section {
-            padding: 100px 0;
+            padding: 80px 0;
             position: relative;
             z-index: 1;
         }
@@ -322,12 +296,6 @@
             background: #0d0d0d;
         }
         #menu {
-            background: #0a0a0a;
-        }
-        #gallery {
-            background: #0d0d0d;
-        }
-        #careers {
             background: #0a0a0a;
         }
 
@@ -349,7 +317,6 @@
         /* About Cards */
         .about-card {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 215, 0, 0.06);
             border-radius: 16px;
             padding: 32px;
@@ -360,7 +327,6 @@
         .about-card:hover {
             transform: translateY(-8px);
             border-color: rgba(255, 215, 0, 0.15);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
         }
         .about-card .icon {
             width: 64px;
@@ -373,231 +339,55 @@
             font-size: 1.6rem;
             color: #ffd700;
             margin: 0 auto 16px;
-            border: 1px solid rgba(255, 215, 0, 0.06);
         }
         .about-card h5 {
             font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 8px;
         }
         .about-card p {
             color: rgba(255, 255, 255, 0.5);
             font-size: 0.95rem;
-            margin: 0;
         }
 
-        /* Menu Items */
-        .menu-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 215, 0, 0.06);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: 0.4s;
-            height: 100%;
+        /* Menu Categories */
+        .menu-category {
+            margin-bottom: 40px;
         }
-        .menu-item:hover {
-            transform: translateY(-8px) scale(1.01);
-            border-color: rgba(255, 215, 0, 0.15);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-        }
-        .menu-item img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-        .menu-item .body {
-            padding: 20px;
-        }
-        .menu-item .body h5 {
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 4px;
-        }
-        .menu-item .body .desc {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-        }
-        .menu-item .body .price {
-            color: #ffd700;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        /* Gallery */
-        .gallery-item {
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            transition: 0.5s;
-        }
-        .gallery-item:hover img {
-            transform: scale(1.08);
-        }
-        .gallery-item .overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-            opacity: 0;
-            transition: 0.4s;
-            display: flex;
-            align-items: flex-end;
-            padding: 20px;
-        }
-        .gallery-item:hover .overlay {
-            opacity: 1;
-        }
-        .gallery-item .overlay span {
-            color: #ffd700;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        /* Careers Section */
-        .career-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 215, 0, 0.06);
-            border-radius: 16px;
-            padding: 24px;
-            transition: 0.4s;
-            text-align: center;
-            height: 100%;
-        }
-        .career-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(255, 215, 0, 0.15);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-        }
-        .career-card .icon {
-            font-size: 2.4rem;
-            color: #ffd700;
-            margin-bottom: 12px;
-        }
-        .career-card h5 {
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-        .career-card .exp {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.85rem;
-            margin-bottom: 12px;
-        }
-        .career-card .btn-apply {
-            background: transparent;
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            color: #ffd700;
-            padding: 8px 24px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        .career-card .btn-apply:hover {
-            background: #ffd700;
-            color: #0a0a0a;
-        }
-
-        /* Modal */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
-            z-index: 9999;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        .modal-overlay.active {
-            display: flex;
-        }
-        .modal-box {
-            background: #1a1a1a;
-            border: 1px solid rgba(255, 215, 0, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 560px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            animation: modalSlide 0.4s ease;
-        }
-        @keyframes modalSlide {
-            0% {
-                transform: scale(0.9) translateY(30px);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1) translateY(0);
-                opacity: 1;
-            }
-        }
-        .modal-box .close-modal {
-            float: right;
-            background: none;
-            border: none;
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 1.6rem;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .modal-box .close-modal:hover {
-            color: #ffd700;
-            transform: rotate(90deg);
-        }
-        .modal-box h3 {
+        .menu-category h3 {
             font-family: 'Playfair Display', serif;
             color: #ffd700;
-            margin-bottom: 4px;
+            font-size: 1.8rem;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            padding-bottom: 8px;
+            margin-bottom: 16px;
         }
-        .modal-box .job-label {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.9rem;
-            margin-bottom: 20px;
+        .menu-item-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
         }
-        .modal-box .form-control {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        .menu-item-row .name {
             color: #ffffff;
-            padding: 12px 16px;
-            border-radius: 10px;
-            width: 100%;
-            transition: 0.3s;
+            font-weight: 400;
         }
-        .modal-box .form-control:focus {
-            border-color: #ffd700;
-            outline: none;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.05);
+        .menu-item-row .name small {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.75rem;
+            display: block;
+            font-weight: 300;
         }
-        .modal-box .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.2);
+        .menu-item-row .price {
+            color: #ffd700;
+            font-weight: 500;
+            white-space: nowrap;
+            margin-left: 16px;
         }
-        .modal-box .btn-gold {
-            background: #ffd700;
-            color: #0a0a0a;
-            border: none;
-            padding: 14px;
-            border-radius: 10px;
-            font-weight: 600;
-            width: 100%;
-            transition: 0.3s;
-        }
-        .modal-box .btn-gold:hover {
-            background: #e6c200;
+        .menu-item-row .price small {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.7rem;
+            font-weight: 300;
         }
 
-        /* Footer */
         footer {
             background: #050505;
             padding: 40px 0;
@@ -611,14 +401,6 @@
             font-size: 0.9rem;
             margin: 0;
         }
-        footer a {
-            color: #ffd700;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        footer a:hover {
-            color: #ffffff;
-        }
 
         @media (max-width: 768px) {
             .hero-content .glitch-text {
@@ -631,18 +413,19 @@
                 margin-left: 0;
                 padding: 8px 0;
             }
-            .modal-box {
-                padding: 24px;
+            .menu-item-row {
+                flex-wrap: wrap;
+            }
+            .menu-item-row .price {
+                margin-left: 0;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Particles -->
     <div id="particles"></div>
 
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-custom" id="navbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">Shahi<span>Qila</span></a>
@@ -653,9 +436,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#careers">Careers</a></li>
-                    <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
+                    <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
                 </ul>
             </div>
         </div>
@@ -691,234 +472,227 @@
                     <div class="about-card">
                         <div class="icon"><i class="fas fa-utensils"></i></div>
                         <h5>Authentic Cuisine</h5>
-                        <p>Traditional Pakistani recipes passed down through generations, cooked with love and precision.</p>
+                        <p>Traditional Pakistani recipes passed down through generations.</p>
                     </div>
                 </div>
                 <div class="col-md-4 fade-up">
                     <div class="about-card">
                         <div class="icon"><i class="fas fa-crown"></i></div>
                         <h5>Royal Heritage</h5>
-                        <p>Inspired by the Mughal era, our dishes reflect the grandeur and elegance of Lahore's history.</p>
+                        <p>Inspired by the Mughal era, reflecting Lahore's grandeur.</p>
                     </div>
                 </div>
                 <div class="col-md-4 fade-up">
                     <div class="about-card">
                         <div class="icon"><i class="fas fa-clock"></i></div>
                         <h5>Open Daily</h5>
-                        <p>1:00 PM – 1:00 AM. Grand Trunk Rd, Singhpura Lahore, 54000.</p>
+                        <p>1:00 PM – 1:00 AM. Grand Trunk Rd, Singhpura Lahore.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Menu -->
+    <!-- Full Menu (No Images) -->
     <section id="menu">
         <div class="container">
             <div class="text-center fade-up">
                 <h2 class="section-title">Our <span class="gold">Menu</span></h2>
                 <p class="section-subtitle">Royal flavors, crafted for you</p>
             </div>
-            <div class="row g-4">
-                <div class="col-md-4 fade-up">
-                    <div class="menu-item">
-                        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=400&fit=crop" alt="Chicken Karahi" />
-                        <div class="body">
-                            <h5>Chicken Karahi</h5>
-                            <div class="desc">Spicy curry cooked in a traditional wok</div>
-                            <span class="price">Rs 800</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 fade-up">
-                    <div class="menu-item">
-                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&h=400&fit=crop" alt="Pizza" />
-                        <div class="body">
-                            <h5>Pizza</h5>
-                            <div class="desc">Cheesy hand-tossed perfection</div>
-                            <span class="price">Rs 1,200</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 fade-up">
-                    <div class="menu-item">
-                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&h=400&fit=crop" alt="BBQ Platter" />
-                        <div class="body">
-                            <h5>BBQ Platter</h5>
-                            <div class="desc">Grilled chicken, beef, and seekh kebabs</div>
-                            <span class="price">Rs 1,500</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 fade-up">
-                    <div class="menu-item">
-                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&h=400&fit=crop" alt="Mutton Karahi" />
-                        <div class="body">
-                            <h5>Mutton Karahi</h5>
-                            <div class="desc">Tender mutton in rich tomato gravy</div>
-                            <span class="price">Rs 1,300</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 fade-up">
-                    <div class="menu-item">
-                        <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=600&h=400&fit=crop" alt="Naan" />
-                        <div class="body">
-                            <h5>Naan Bread</h5>
-                            <div class="desc">Freshly baked tandoori naan</div>
-                            <span class="price">Rs 80</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 fade-up">
-                    <div class="menu-item">
-                        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&h=400&fit=crop" alt="Brownie" />
-                        <div class="body">
-                            <h5>Brownie with Ice Cream</h5>
-                            <div class="desc">Warm brownie with vanilla ice cream</div>
-                            <span class="price">Rs 450</span>
-                        </div>
-                    </div>
-                </div>
+
+            <!-- Starters -->
+            <div class="menu-category fade-up">
+                <h3>Starters</h3>
+                <div class="menu-item-row"><span class="name">Plain Fries</span><span class="price">Rs 250</span></div>
+                <div class="menu-item-row"><span class="name">Chicken Strips <small>4 crispy pcs with tandoori sauce</small></span><span class="price">Rs 450</span></div>
+                <div class="menu-item-row"><span class="name">Mexican Crispy Tacos <small>Crispy chicken, iceberg & taco sauce</small></span><span class="price">Rs 550</span></div>
+                <div class="menu-item-row"><span class="name">Nachos Bites <small>8 pcs nachos, chicken, cheese, sour cream & salsa</small></span><span class="price">Rs 650</span></div>
+                <div class="menu-item-row"><span class="name">Loaded Fries <small>Fries with masala cheese, garlic sauce</small></span><span class="price">Rs 500</span></div>
+                <div class="menu-item-row"><span class="name">Shahi Chicken 65</span><span class="price">Rs 550</span></div>
+                <div class="menu-item-row"><span class="name">Raita <small>1 pcs</small></span><span class="price">Rs 80</span></div>
+                <div class="menu-item-row"><span class="name">Salad <small>1 pcs</small></span><span class="price">Rs 80</span></div>
+                <div class="menu-item-row"><span class="name">Kachumar Salad <small>1 pcs</small></span><span class="price">Rs 100</span></div>
             </div>
+
+            <!-- Soup -->
+            <div class="menu-category fade-up">
+                <h3>Soup</h3>
+                <div class="menu-item-row"><span class="name">Cream Of Chicken</span><span class="price">Rs 300</span></div>
+                <div class="menu-item-row"><span class="name">Hot N Sour</span><span class="price">Rs 300</span></div>
+                <div class="menu-item-row"><span class="name">Corn Soup</span><span class="price">Rs 300</span></div>
+                <div class="menu-item-row"><span class="name">Shahi Qila Special</span><span class="price">Rs 350</span></div>
+            </div>
+
+            <!-- Tandoor -->
+            <div class="menu-category fade-up">
+                <h3>Tandoor</h3>
+                <div class="menu-item-row"><span class="name">Cheese Naan</span><span class="price">Rs 150</span></div>
+                <div class="menu-item-row"><span class="name">Sada Naan</span><span class="price">Rs 80</span></div>
+                <div class="menu-item-row"><span class="name">Kalongi Naan</span><span class="price">Rs 120</span></div>
+                <div class="menu-item-row"><span class="name">Garlic Naan</span><span class="price">Rs 120</span></div>
+                <div class="menu-item-row"><span class="name">Chicken Cheese Naan</span><span class="price">Rs 200</span></div>
+                <div class="menu-item-row"><span class="name">Saada Roti</span><span class="price">Rs 60</span></div>
+                <div class="menu-item-row"><span class="name">Rogni Nan</span><span class="price">Rs 150</span></div>
+            </div>
+
+            <!-- BBQ -->
+            <div class="menu-category fade-up">
+                <h3>B.B.Q Plate</h3>
+                <div class="menu-item-row"><span class="name">Chicken Kabab <small>4 pcs</small></span><span class="price">Rs 550</span></div>
+                <div class="menu-item-row"><span class="name">Beef Kabab <small>4 pcs</small></span><span class="price">Rs 600</span></div>
+                <div class="menu-item-row"><span class="name">Chicken Tikka Boti <small>12 pcs</small></span><span class="price">Rs 750</span></div>
+                <div class="menu-item-row"><span class="name">Malai Boti <small>12 pcs</small></span><span class="price">Rs 850</span></div>
+                <div class="menu-item-row"><span class="name">Reshmi Kabab <small>4 pcs</small></span><span class="price">Rs 600</span></div>
+                <div class="menu-item-row"><span class="name">Boneless Tikka <small>12 pcs</small></span><span class="price">Rs 750</span></div>
+                <div class="menu-item-row"><span class="name">Tikka Piece <small>1 pcs</small></span><span class="price">Rs 180</span></div>
+            </div>
+
+            <!-- BBQ Platter 1 -->
+            <div class="menu-category fade-up">
+                <h3>B.B.Q Platter 1</h3>
+                <div class="menu-item-row"><span class="name">Tikka Leg/Breast <small>2 pcs</small></span><span class="price">Rs 450</span></div>
+                <div class="menu-item-row"><span class="name">Chicken Kabab <small>2 pcs</small></span><span class="price">Rs 300</span></div>
+                <div class="menu-item-row"><span class="name">Beef Kabab <small>2 pcs</small></span><span class="price">Rs 350</span></div>
+                <div class="menu-item-row"><span class="name">Cheese Kabab <small>2 pcs</small></span><span class="price">Rs 350</span></div>
+                <div class="menu-item-row"><span class="name">Achari Boti <small>4 pcs</small></span><span class="price">Rs 400</span></div>
+                <div class="menu-item-row"><span class="name">Boneless Tikka <small>4 pcs</small></span><span class="price">Rs 350</span></div>
+                <div class="menu-item-row"><span class="name">Malai Boti <small>4 pcs</small></span><span class="price">Rs 400</span></div>
+                <div class="menu-item-row"><span class="name">Tikka Boti <small>4 pcs</small></span><span class="price">Rs 380</span></div>
+                <div class="menu-item-row"><span class="name">Raita <small>1</small></span><span class="price">Rs 80</span></div>
+                <div class="menu-item-row"><span class="name">Salad Kachumar <small>1</small></span><span class="price">Rs 100</span></div>
+                <div class="menu-item-row"><span class="name">Naan <small>6</small></span><span class="price">Rs 480</span></div>
+            </div>
+
+            <!-- Traditional Handi -->
+            <div class="menu-category fade-up">
+                <h3>Traditional Handi</h3>
+                <div class="menu-item-row"><span class="name">Lemon Chilli Chicken</span><span class="price">Rs 850</span></div>
+                <div class="menu-item-row"><span class="name">Jalfrezi</span><span class="price">Rs 800</span></div>
+                <div class="menu-item-row"><span class="name">Ginger</span><span class="price">Rs 800</span></div>
+                <div class="menu-item-row"><span class="name">Rajasthani</span><span class="price">Rs 850</span></div>
+                <div class="menu-item-row"><span class="name">Peri Peri</span><span class="price">Rs 850</span></div>
+                <div class="menu-item-row"><span class="name">Shahi Signature Qeema</span><span class="price">Rs 900</span></div>
+            </div>
+
+            <!-- Karahi -->
+            <div class="menu-category fade-up">
+                <h3>Karahi</h3>
+                <div class="menu-item-row"><span class="name">Chicken Karahi <small>Half / Full</small></span><span class="price">Rs 650 / 1,200</span></div>
+                <div class="menu-item-row"><span class="name">Shahi Mutton Karahi <small>Half / Full</small></span><span class="price">Rs 950 / 1,800</span></div>
+                <div class="menu-item-row"><span class="name">Mutton Shinwari <small>Half / Full</small></span><span class="price">Rs 1,000 / 1,900</span></div>
+                <div class="menu-item-row"><span class="name">Lemon Chilli Mutton <small>Half / Full</small></span><span class="price">Rs 950 / 1,800</span></div>
+                <div class="menu-item-row"><span class="name">Lemon Chilli Chicken</span><span class="price">Rs 850</span></div>
+                <div class="menu-item-row"><span class="name">Jalfrezi</span><span class="price">Rs 800</span></div>
+                <div class="menu-item-row"><span class="name">Ginger</span><span class="price">Rs 800</span></div>
+                <div class="menu-item-row"><span class="name">Rajasthani</span><span class="price">Rs 850</span></div>
+                <div class="menu-item-row"><span class="name">Peri Peri</span><span class="price">Rs 850</span></div>
+            </div>
+
+            <!-- Chinese -->
+            <div class="menu-category fade-up">
+                <h3>Chinese <small style="color:rgba(255,255,255,0.3); font-size:0.8rem;">Served with egg fried rice or garlic rice</small></h3>
+                <div class="menu-item-row"><span class="name">Dry Chilli Beef Or Chicken</span><span class="price">Rs 750</span></div>
+                <div class="menu-item-row"><span class="name">Cashew Nut</span><span class="price">Rs 750</span></div>
+                <div class="menu-item-row"><span class="name">Manchurian</span><span class="price">Rs 700</span></div>
+                <div class="menu-item-row"><span class="name">Shashlik</span><span class="price">Rs 800</span></div>
+            </div>
+
+            <!-- Burgers -->
+            <div class="menu-category fade-up">
+                <h3>Burger's Hub</h3>
+                <div class="menu-item-row"><span class="name">Chicken Tickle, Pickle <small>Juicy chicken patty, iceberg, cheese cucumber, pickle, tomato & fries</small></span><span class="price">Rs 550</span></div>
+                <div class="menu-item-row"><span class="name">Grilled Chicken Burger <small>Juicy grilled steak, onion ring, iceberg, tomato, fries & tandoori sauce</small></span><span class="price">Rs 650</span></div>
+                <div class="menu-item-row"><span class="name">Zinger Burger <small>Kentucky style chicken, garlic mayo, iceberg & fries</small></span><span class="price">Rs 550</span></div>
+                <div class="menu-item-row"><span class="name">Crispy Crunch Burger <small>Crispy brown chicken, mayo & coleslaw</small></span><span class="price">Rs 500</span></div>
+                <div class="menu-item-row"><span class="name">Smoki Beef</span><span class="price">Rs 650</span></div>
+            </div>
+
+            <!-- Beverages -->
+            <div class="menu-category fade-up">
+                <h3>Beverages</h3>
+                <div class="menu-item-row"><span class="name">Seasonal Fresh Juice</span><span class="price">Rs 350</span></div>
+                <div class="menu-item-row"><span class="name">Peach Juice</span><span class="price">Rs 300</span></div>
+                <div class="menu-item-row"><span class="name">Mint Margarita</span><span class="price">Rs 350</span></div>
+                <div class="menu-item-row"><span class="name">Cool Lime, Lemonade</span><span class="price">Rs 300</span></div>
+                <div class="menu-item-row"><span class="name">Pineapple</span><span class="price">Rs 300</span></div>
+                <div class="menu-item-row"><span class="name">Soft Drink Tin</span><span class="price">Rs 180</span></div>
+                <div class="menu-item-row"><span class="name">Mineral Water <small>Small / Large</small></span><span class="price">Rs 100 / 200</span></div>
+                <div class="menu-item-row"><span class="name">Black Coffee</span><span class="price">Rs 300</span></div>
+                <div class="menu-item-row"><span class="name">Cold Coffee</span><span class="price">Rs 400</span></div>
+                <div class="menu-item-row"><span class="name">Cappuccino</span><span class="price">Rs 350</span></div>
+                <div class="menu-item-row"><span class="name">Banana Shake</span><span class="price">Rs 400</span></div>
+                <div class="menu-item-row"><span class="name">Tea</span><span class="price">Rs 150</span></div>
+                <div class="menu-item-row"><span class="name">Carroumum Tea</span><span class="price">Rs 200</span></div>
+            </div>
+
+            <!-- Ice Cream Shakes -->
+            <div class="menu-category fade-up">
+                <h3>Ice Cream Shakes</h3>
+                <div class="menu-item-row"><span class="name">Death By Chocolate</span><span class="price">Rs 550</span></div>
+                <div class="menu-item-row"><span class="name">Chocolate Oreo</span><span class="price">Rs 500</span></div>
+                <div class="menu-item-row"><span class="name">Vanilla Oreo</span><span class="price">Rs 480</span></div>
+                <div class="menu-item-row"><span class="name">Vanilla Caramel</span><span class="price">Rs 480</span></div>
+                <div class="menu-item-row"><span class="name">Brownie Shake</span><span class="price">Rs 550</span></div>
+                <div class="menu-item-row"><span class="name">Mango Shake</span><span class="price">Rs 450</span></div>
+            </div>
+
+            <!-- Sandwiches -->
+            <div class="menu-category fade-up">
+                <h3>Sandwich</h3>
+                <div class="menu-item-row"><span class="name">Club Sandwich <small>Grilled chicken, iceberg, mayo, tomato, cucumber, boiled egg, cheese & fries</small></span><span class="price">Rs 600</span></div>
+                <div class="menu-item-row"><span class="name">Chicken Tikka Sandwich <small>Tikka mash chicken, mayo, veggies & fried egg</small></span><span class="price">Rs 550</span></div>
+                <div class="menu-item-row"><span class="name">Cold Sandwich <small>Mashed chicken, cucumber, tomato, mayo, iceberg & fries</small></span><span class="price">Rs 500</span></div>
+            </div>
+
+            <!-- Desserts -->
+            <div class="menu-category fade-up">
+                <h3>Desserts</h3>
+                <div class="menu-item-row"><span class="name">Brownie With Ice Cream</span><span class="price">Rs 450</span></div>
+                <div class="menu-item-row"><span class="name">Ras Malai</span><span class="price">Rs 200</span></div>
+                <div class="menu-item-row"><span class="name">Gulab Jamun <small>3 pieces</small></span><span class="price">Rs 250</span></div>
+                <div class="menu-item-row"><span class="name">Firni Kuthi <small>2 pieces</small></span><span class="price">Rs 300</span></div>
+            </div>
+
+            <!-- Signature -->
+            <div class="menu-category fade-up">
+                <h3>Signature</h3>
+                <div class="menu-item-row"><span class="name">Shahi Special Biryani <small>Leg / Breast</small></span><span class="price">Rs 800 / 750</span></div>
+            </div>
+
+            <!-- Wraps -->
+            <div class="menu-category fade-up">
+                <h3>Wraps</h3>
+                <div class="menu-item-row"><span class="name">Lebanese Wrap <small>Home made lebanese sauce, garlic sauce, cucumber pickle & fries</small></span><span class="price">Rs 550</span></div>
+                <div class="menu-item-row"><span class="name">California Wrap <small>Grilled chicken tomato, american sauce, cheese, garlic sauce & fries</small></span><span class="price">Rs 600</span></div>
+            </div>
+
+            <!-- Pizza -->
+            <div class="menu-category fade-up">
+                <h3>Pizza <small style="color:rgba(255,255,255,0.3); font-size:0.8rem;">L / M / S</small></h3>
+                <div class="menu-item-row"><span class="name">Shahi Signature Pizza <small>Grilled chicken kabab pepperoni, tomato sauce cheese, olives, mushrooms, onion, capsicum & sweet corns</small></span><span class="price">Rs 1,800 / 1,300 / 900</span></div>
+                <div class="menu-item-row"><span class="name">Tikka <small>Chicken tikka, tomato sauce cheese, olive, tomato, onion & bell pepper</small></span><span class="price">Rs 1,600 / 1,200 / 800</span></div>
+                <div class="menu-item-row"><span class="name">Fajita <small>Fajita chicken, tomato sauce, cheese, onion & capsicum</small></span><span class="price">Rs 1,600 / 1,200 / 800</span></div>
+                <div class="menu-item-row"><span class="name">Hot & Spicy <small>Spicy chicken, tomato sauce, cheese, onion, jalapeno & capsicum</small></span><span class="price">Rs 1,700 / 1,250 / 850</span></div>
+                <div class="menu-item-row"><span class="name">Super Supreme <small>3 types of chicken, tomato sauce, cheese, mushrooms, olives, onion & capsicum</small></span><span class="price">Rs 1,800 / 1,300 / 900</span></div>
+                <div class="menu-item-row"><span class="name">Stuff Pizza <small>Kabab stuff or cheese stuff (L / M)</small></span><span class="price">Rs 1,500 / 1,100</span></div>
+            </div>
+
+            <!-- Pasta -->
+            <div class="menu-category fade-up">
+                <h3>Pasta</h3>
+                <div class="menu-item-row"><span class="name">Mac N Cheese <small>Spicy creamy macaroni baked with a layer of cheese (optional chicken or cheetos)</small></span><span class="price">Rs 600</span></div>
+                <div class="menu-item-row"><span class="name">Tuscan Pasta <small>Grilled chicken & crispy potato</small></span><span class="price">Rs 650</span></div>
+                <div class="menu-item-row"><span class="name">Alfredo Pasta</span><span class="price">Rs 600</span></div>
+                <div class="menu-item-row"><span class="name">Chicken Chowmein</span><span class="price">Rs 550</span></div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Gallery -->
-    <section id="gallery">
-        <div class="container">
-            <div class="text-center fade-up">
-                <h2 class="section-title">Our <span class="gold">Gallery</span></h2>
-                <p class="section-subtitle">A glimpse of our royal experience</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-3 gallery-item fade-up">
-                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop" alt="Interior" />
-                    <div class="overlay"><span>Royal Ambiance</span></div>
-                </div>
-                <div class="col-md-3 gallery-item fade-up">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=400&fit=crop" alt="Food" />
-                    <div class="overlay"><span>Exquisite Platters</span></div>
-                </div>
-                <div class="col-md-3 gallery-item fade-up">
-                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop" alt="Dessert" />
-                    <div class="overlay"><span>Sweet Delights</span></div>
-                </div>
-                <div class="col-md-3 gallery-item fade-up">
-                    <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&h=400&fit=crop" alt="Grill" />
-                    <div class="overlay"><span>Live Grill</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Careers -->
-    <section id="careers">
-        <div class="container">
-            <div class="text-center fade-up">
-                <h2 class="section-title">Career <span class="gold">Opportunities</span></h2>
-                <p class="section-subtitle">Join the royal family</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4 fade-up">
-                    <div class="career-card">
-                        <div class="icon"><i class="fas fa-utensils"></i></div>
-                        <h5>Chef</h5>
-                        <div class="exp">2+ years experience</div>
-                        <button class="btn-apply" onclick="openModal('Chef')">Apply Now</button>
-                    </div>
-                </div>
-                <div class="col-md-4 fade-up">
-                    <div class="career-card">
-                        <div class="icon"><i class="fas fa-user-tie"></i></div>
-                        <h5>Restaurant Manager</h5>
-                        <div class="exp">2+ years experience</div>
-                        <button class="btn-apply" onclick="openModal('Restaurant Manager')">Apply Now</button>
-                    </div>
-                </div>
-                <div class="col-md-4 fade-up">
-                    <div class="career-card">
-                        <div class="icon"><i class="fas fa-wine-glass-alt"></i></div>
-                        <h5>Waiter</h5>
-                        <div class="exp">2+ years experience</div>
-                        <button class="btn-apply" onclick="openModal('Waiter')">Apply Now</button>
-                    </div>
-                </div>
-                <div class="col-md-4 fade-up">
-                    <div class="career-card">
-                        <div class="icon"><i class="fas fa-kitchen-set"></i></div>
-                        <h5>Sous Chef</h5>
-                        <div class="exp">3+ years experience</div>
-                        <button class="btn-apply" onclick="openModal('Sous Chef')">Apply Now</button>
-                    </div>
-                </div>
-                <div class="col-md-4 fade-up">
-                    <div class="career-card">
-                        <div class="icon"><i class="fas fa-crown"></i></div>
-                        <h5>Head Chef</h5>
-                        <div class="exp">5+ years experience</div>
-                        <button class="btn-apply" onclick="openModal('Head Chef')">Apply Now</button>
-                    </div>
-                </div>
-                <div class="col-md-4 fade-up">
-                    <div class="career-card">
-                        <div class="icon"><i class="fas fa-running"></i></div>
-                        <h5>Food Runner</h5>
-                        <div class="exp">1+ years experience</div>
-                        <button class="btn-apply" onclick="openModal('Food Runner')">Apply Now</button>
-                    </div>
-                </div>
-                <div class="col-md-4 fade-up">
-                    <div class="career-card">
-                        <div class="icon"><i class="fas fa-cocktail"></i></div>
-                        <h5>Bartender</h5>
-                        <div class="exp">2+ years experience</div>
-                        <button class="btn-apply" onclick="openModal('Bartender')">Apply Now</button>
-                    </div>
-                </div>
-                <div class="col-md-4 fade-up">
-                    <div class="career-card">
-                        <div class="icon"><i class="fas fa-smile"></i></div>
-                        <h5>Hostess</h5>
-                        <div class="exp">1+ years experience</div>
-                        <button class="btn-apply" onclick="openModal('Hostess')">Apply Now</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal -->
-    <div class="modal-overlay" id="applyModal">
-        <div class="modal-box">
-            <button class="close-modal" onclick="closeModal()">&times;</button>
-            <h3>Apply Now</h3>
-            <p class="job-label" id="modalJobLabel">Position: Chef</p>
-            <form id="applicationForm">
-                <input type="hidden" id="jobPosition" />
-                <div class="mb-3">
-                    <input type="text" id="fullName" class="form-control" placeholder="Full Name" required />
-                </div>
-                <div class="mb-3">
-                    <input type="email" id="email" class="form-control" placeholder="Email Address" required />
-                </div>
-                <div class="mb-3">
-                    <input type="tel" id="phone" class="form-control" placeholder="Phone Number" required />
-                </div>
-                <div class="mb-3">
-                    <input type="file" id="cvFile" class="form-control" accept=".pdf,.doc,.docx" required />
-                </div>
-                <button type="submit" class="btn-gold">Submit Application</button>
-                <div id="applyError" style="color:#ff6b6b; font-size:0.9rem; margin-top:8px;"></div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2026 Lahore Shahi Qila Restaurant. Crafted with <i class="fas fa-heart" style="color:#ffd700;"></i> in Lahore.</p>
-            <p><a href="admin.html">Admin Panel</a></p>
         </div>
     </footer>
 
@@ -927,7 +701,7 @@
         // Particles
         (function() {
             const container = document.getElementById('particles');
-            for (let i = 0; i < 60; i++) {
+            for (let i = 0; i < 50; i++) {
                 const p = document.createElement('div');
                 p.className = 'particle';
                 p.style.left = Math.random() * 100 + '%';
@@ -939,77 +713,18 @@
             }
         })();
 
+        // Scroll Animations
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        fadeElements.forEach(el => observer.observe(el));
+
         // Navbar scroll
         window.addEventListener('scroll', function() {
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        // Scroll Animations
-        const fadeElements = document.querySelectorAll('.fade-up, .fade-left, .fade-right');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.15 });
-        fadeElements.forEach(el => observer.observe(el));
-
-        // Modal
-        function openModal(job) {
-            document.getElementById('applyModal').classList.add('active');
-            document.getElementById('jobPosition').value = job;
-            document.getElementById('modalJobLabel').textContent = 'Position: ' + job;
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            document.getElementById('applyModal').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Form Submit
-        document.getElementById('applicationForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const job = document.getElementById('jobPosition').value;
-            const name = document.getElementById('fullName').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const file = document.getElementById('cvFile').files[0];
-            const error = document.getElementById('applyError');
-
-            if (!name || !email || !phone || !file) {
-                error.textContent = 'Please fill all fields and upload CV.';
-                return;
-            }
-
-            try {
-                const reader = new FileReader();
-                reader.onloadend = async function() {
-                    const base64 = reader.result;
-                    const payload = {
-                        job: job,
-                        name: name,
-                        email: email,
-                        phone: phone,
-                        cv: base64,
-                        cvName: file.name,
-                        cvType: file.type,
-                        timestamp: new Date().toISOString()
-                    };
-
-                    const { db } = await import('./firebase-config.js');
-                    const { collection, addDoc } = await import("https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js");
-                    await addDoc(collection(db, 'applications'), payload);
-                    alert('Application submitted successfully!');
-                    closeModal();
-                    document.getElementById('applicationForm').reset();
-                };
-                reader.readAsDataURL(file);
-            } catch (err) {
-                error.textContent = 'Failed to submit. Check console.';
-                console.error(err);
-            }
         });
     </script>
 </body>
