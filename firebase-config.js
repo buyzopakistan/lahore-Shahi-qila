@@ -1,10 +1,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-database.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBEWI50WaNhS-_Ey7BJxcGwBT5Bn0Jr38c",
   authDomain: "lahore-shahi-qila.firebaseapp.com",
-  databaseURL: "https://lahore-shahi-qila-default-rtdb.firebaseio.com/",
   projectId: "lahore-shahi-qila",
   storageBucket: "lahore-shahi-qila.firebasestorage.app",
   messagingSenderId: "922836751486",
@@ -12,6 +12,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
+const db = getFirestore(app);
+const auth = getAuth(app);
 
-export { db };
+export { db, auth };
