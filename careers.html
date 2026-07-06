@@ -28,7 +28,7 @@
             border: 1px solid rgba(255, 215, 0, 0.08);
             border-radius: 20px;
             padding: 40px;
-            max-width: 520px;
+            max-width: 560px;
             width: 100%;
             transition: 0.4s;
         }
@@ -54,7 +54,6 @@
             font-size: 0.95rem;
         }
 
-        /* ===== IMPROVED FORM STYLES ===== */
         .form-group {
             margin-bottom: 20px;
         }
@@ -135,7 +134,7 @@
             text-align: center;
         }
 
-        /* Jobs Section */
+        /* Job Cards */
         #jobSection {
             display: none;
             margin-top: 32px;
@@ -148,48 +147,69 @@
             text-align: center;
             margin-bottom: 20px;
         }
+
         .job-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 215, 0, 0.06);
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 215, 0, 0.08);
+            border-radius: 14px;
             padding: 16px 20px;
             margin-bottom: 12px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            gap: 16px;
             transition: 0.3s;
             flex-wrap: wrap;
-            gap: 8px;
         }
         .job-card:hover {
-            border-color: rgba(255, 215, 0, 0.15);
+            border-color: rgba(255, 215, 0, 0.2);
+            background: rgba(255, 215, 0, 0.03);
             transform: translateX(4px);
         }
-        .job-card .info strong {
+        .job-card .job-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 215, 0, 0.08);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
             color: #ffd700;
+            flex-shrink: 0;
         }
-        .job-card .info .exp {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.85rem;
-            margin-left: 8px;
+        .job-card .job-info {
+            flex: 1;
         }
-        .job-card .btn-apply {
+        .job-card .job-info h5 {
+            font-weight: 600;
+            margin: 0;
+            color: #ffffff;
+        }
+        .job-card .job-info .exp-badge {
+            font-size: 0.7rem;
+            background: rgba(255, 215, 0, 0.1);
+            color: #ffd700;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        .job-card .btn-details {
             background: transparent;
             border: 1px solid rgba(255, 215, 0, 0.15);
             color: #ffd700;
-            padding: 6px 18px;
-            border-radius: 50px;
+            padding: 6px 16px;
+            border-radius: 8px;
             font-size: 0.8rem;
             font-weight: 500;
             transition: 0.3s;
             cursor: pointer;
         }
-        .job-card .btn-apply:hover {
+        .job-card .btn-details:hover {
             background: #ffd700;
             color: #0a0a0a;
         }
 
-        /* Modal */
+        /* Details Modal */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -214,15 +234,17 @@
             padding: 32px;
             max-width: 520px;
             width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
             animation: modalSlide 0.4s ease;
         }
         @keyframes modalSlide {
             0% {
-                transform: scale(0.9);
+                transform: scale(0.9) translateY(20px);
                 opacity: 0;
             }
             100% {
-                transform: scale(1);
+                transform: scale(1) translateY(0);
                 opacity: 1;
             }
         }
@@ -239,13 +261,55 @@
             color: #ffd700;
             transform: rotate(90deg);
         }
-        .modal-box h3 {
+        .modal-box .detail-title {
             font-family: 'Playfair Display', serif;
             color: #ffd700;
+            font-size: 1.8rem;
+            margin-bottom: 4px;
         }
-        .modal-box .job-label {
+        .modal-box .detail-exp {
             color: rgba(255, 255, 255, 0.4);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+        .modal-box .detail-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.6;
             margin-bottom: 16px;
+        }
+        .modal-box .detail-requirements h6 {
+            color: #ffd700;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .modal-box .detail-requirements ul {
+            list-style: none;
+            padding: 0;
+        }
+        .modal-box .detail-requirements ul li {
+            padding: 4px 0;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        .modal-box .detail-requirements ul li i {
+            color: #ffd700;
+            margin-right: 8px;
+        }
+        .modal-box .btn-apply-detail {
+            background: #ffd700;
+            color: #0a0a0a;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 16px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .modal-box .btn-apply-detail:hover {
+            background: #e6c200;
         }
 
         .back-link {
@@ -266,8 +330,14 @@
                 padding: 24px;
             }
             .job-card {
-                flex-direction: column;
-                align-items: flex-start;
+                flex-wrap: wrap;
+            }
+            .job-card .btn-details {
+                width: 100%;
+                text-align: center;
+            }
+            .modal-box {
+                padding: 20px;
             }
         }
     </style>
@@ -303,10 +373,28 @@
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
     </div>
 
-    <!-- Modal -->
+    <!-- Details Modal -->
+    <div class="modal-overlay" id="detailsModal">
+        <div class="modal-box">
+            <button class="close-modal" onclick="closeDetails()">&times;</button>
+            <div class="detail-title" id="detailTitle">Chef</div>
+            <div class="detail-exp" id="detailExp">Experience: 2+ years</div>
+            <div class="detail-desc" id="detailDesc">Description here...</div>
+            <div class="detail-requirements">
+                <h6>Requirements</h6>
+                <ul id="detailRequirements">
+                    <li><i class="fas fa-check-circle"></i> Requirement 1</li>
+                    <li><i class="fas fa-check-circle"></i> Requirement 2</li>
+                </ul>
+            </div>
+            <button class="btn-apply-detail" id="applyFromDetail"><i class="fas fa-paper-plane"></i> Apply Now</button>
+        </div>
+    </div>
+
+    <!-- Apply Modal -->
     <div class="modal-overlay" id="applyModal">
         <div class="modal-box">
-            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <button class="close-modal" onclick="closeApplyModal()">&times;</button>
             <h3>Apply Now</h3>
             <p class="job-label" id="modalJobLabel">Position: Chef</p>
             <form id="applicationForm">
