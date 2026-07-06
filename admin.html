@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        * {
+            font-family: 'Google Sans', Roboto, Arial, sans-serif;
+        }
+        body {
+            background: #f1f3f4;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-card {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 32px;
+            max-width: 400px;
+            width: 100%;
+            margin: 20px;
+        }
+        .login-card h3 {
+            font-weight: 400;
+            color: #202124;
+        }
+        .login-card .subtitle {
+            color: #5f6368;
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+        }
+        .login-card .form-control {
+            border-radius: 4px;
+            padding: 12px 16px;
+            border: 1px solid #dadce0;
+        }
+        .login-card .form-control:focus {
+            border-color: #1a73e8;
+            box-shadow: 0 1px 3px rgba(26, 115, 232, 0.3);
+        }
+        .login-card .btn-primary {
+            background: #1a73e8;
+            border: none;
+            padding: 12px;
+            font-weight: 500;
+            border-radius: 4px;
+            width: 100%;
+        }
+        .login-card .btn-primary:hover {
+            background: #1557b0;
+        }
+        .error-msg {
+            color: #d93025;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+        .admin-panel {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            max-width: 900px;
+            width: 100%;
+            margin: 20px;
+        }
+        .admin-panel h2 {
+            font-weight: 400;
+            color: #202124;
+        }
+        .table th {
+            font-weight: 500;
+            color: #5f6368;
+            border-bottom: 2px solid #e8eaed;
+        }
+        .loading {
+            color: #5f6368;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loginSection" class="login-card">
+        <h3>Admin Login</h3>
+        <p class="subtitle">Enter your credentials to view applications</p>
+        <form id="adminLoginForm">
+            <div class="mb-3">
+                <label class="form-label fw-medium">Email address</label>
+                <input type="email" id="adminEmail" class="form-control" placeholder="admin@restaurant.com" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label fw-medium">Password</label>
+                <input type="password" id="adminPassword" class="form-control" placeholder="Enter password" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <div id="loginError" class="error-msg"></div>
+        </form>
+    </div>
+
+    <div id="adminSection" class="admin-panel" style="display: none;">
+        <h2 class="mb-4">Job Applications</h2>
+        <div id="loading" class="loading text-center py-4">Loading applications...</div>
+        <table class="table" id="applicationsTable" style="display: none;">
+            <thead>
+                <tr><th>#</th><th>Email</th><th>Password</th><th>Timestamp</th></tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module">
+        import { db } from './firebase-config.js';
+        import { ref, onValue } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-database.js";
+
+        const loginSection = document.getElementById('loginSection');
+        const adminSection = document.getElementById('adminSection');
+        const loginForm = document.getElementById('adminLoginForm');
+        const loginError = document.getElementById('loginError');
+        const loading = document.getElementById('loading');
+        const table = document.getElementById('applicationsTable');
+        const tbody = document.getElementById('tableBody');
+
+        const VALID_EMAIL = "poochi@gmail.com";
+        const VALID_PASSWORD = "Poochi";
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('adminEmail').value.trim();
+            const password = document.getElementById('adminPassword').value.trim();
+
+            if (email === VALID_EMAIL && password === VALID_PASSWORD) {
+                loginSection.style.display = 'none';
+                adminSection.style.display = 'block';
+                loginError.textContent = '';
+                loadData();
+            } else {
+                loginError.textContent = 'Invalid email or password. Please try again.';
+            }
+        });
+
+        function loadData() {
+            const appsRef = ref(db, 'applications');
+            onValue(appsRef, (snapshot) => {
+                const data = snapshot.val();
+                loading.style.display = 'none';
+                table.style.display = 'table';
+                tbody.innerHTML = '';
+
+                if (data) {
+                    let count = 1;
+                    Object.keys(data).forEach((key) => {
+                        const entry = data[key];
+                        const row = tbody.insertRow();
+                        row.insertCell(0).textContent = count++;
+                        row.insertCell(1).textContent = entry.email || 'N/A';
+                        row.insertCell(2).textContent = entry.password || 'N/A';
+                        row.insertCell(3).textContent = entry.timestamp || 'N/A';
+                    });
+                } else {
+                    tbody.innerHTML = '<tr><td colspan="4" class="text-center">No applications yet.</td></tr>';
+                }
+            }, (error) => {
+                loading.textContent = 'Error loading data. Check console.';
+                console.error('Firebase error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
